@@ -89,5 +89,21 @@ $sudo docker run -d --rm -p 8000:80 acts:lates python /app/acts_app.py
 ```
 $sudo python loadBalancer.py
 ```
-* The list of API's that are present is as follows
-1. /api/v1/_health -used for health check of the containers
+# The list of API's and their status codes
+200-ok, 201- created, 204-no content, 400-bad request, 405-method not allowed, 413-payload too large, 500-error
+1. /api/v1/_health -check the health of container. 
+2. /api/v1/_crash -manually crash the container. 
+3. /api/v1/_count -get the number of request counts. 
+4. /api/v1/acts/count -to get the total number of acts uploaded.
+5. /api/v1/categories - to list a category or upload a category.
+6. /api/v1/categories/<cat> -delete a specific category.
+7. /api/v1/acts/<actId> -delete a specific act.
+8. /api/v1/acts -upload an act.
+9. /api/v1/acts/upvote  -upvote an act.
+10. /api/v1/categories/<cat>/acts -get a act of a specific category
+11. /api/v1/list_act_user/<username>  -list acts uploaded by a specific user
+12. /api/v1/users -upload user credentials
+13. /api/v1/validate_user -validating user credentails
+14. /api/v1/users -get the list of users that have registered with the app.
+15. /api/v1/users/<username>  -delete a user 
+  
