@@ -1,6 +1,6 @@
 # Description
 The project was carried out as a part of the Cloud Computing course at PES University 2019.<br/>
-The objective of the project was to build a container orchestrator that can perform load balancing between micro-services and within micro-services, fault tolerance, and auto-scaling. The micro-services communicate with each other using _REST Api's_ .The entire project was implemented on [Amazon AWS](https://aws.amazon.com/) EC2 instances.
+The objective of the project was to build a _container orchestrator_ that can perform _load-0balancing_ between micro-services and within micro-services, _fault tolerance_ and _auto-scaling_. The micro-services communicate with each other using _REST Api's_ .The entire project was implemented on [Amazon AWS](https://aws.amazon.com/) EC2 instances.
 
 
 # Requirements
@@ -54,7 +54,7 @@ $mysql -u root -p
 >>create table containers(port varchar(10));
 >>exit
 ```
-* Execute the below command on the intance to create alpine containers respectively.<br/>_Before executing the below command make changes wherever required to the acts_app.py code_
+* Execute the below command on the instance to create alpine containers respectively.<br/>_Before executing the below command make changes wherever required to the acts_app.py code_
 ```
 $sudo docker build -t acts:latest .
 ```
@@ -82,15 +82,15 @@ $python user_app.py
 ```
 $sudo scp -i acts.pem loadBalancer.py instance@ip:/
 ```
-* Switch to your acts instace and then create a default acts container listening at port 8000.<br/> _make sure that the database container is running_ 
+* Switch to your acts instace and then create a default acts container listening on port 8000.<br/> _make sure that the database container is running_ 
 ```
 $sudo docker run -d --rm -p 8000:80 acts:lates python /app/acts_app.py
 ```
-* Run the LoadBalancer.py code.<br/> The loadBalancer.py code perferms load distribution in a round-robin fashioh, and it also monitores the number of request made, with every increment of 10 request a new container is deployed, and it also performs scale-in vice-vera, the script also performs health check that is is any containers is found to be damages or not running then a new container with the same port number of that of the broken contianer is deployed.
+* Run the LoadBalancer.py code.<br/> The loadBalancer.py code perferms load distribution in a _round-robin_ fashioh, and it also monitores the number of request made, with every increment of 10 request a new container is deployed, and it also performs scale-in vice-vera, the script also performs _health check_ that is if any containers is found to be damaged or not running, then a new container with the same port number of that of the broken contianer is deployed.
 ```
 $sudo python loadBalancer.py
 ```
-* To test the working of the  instance, either use curl or postman to send request, use the DNS of the application load balance
+* To test the working of the  instance, either use curl or postman to send request, use the DNS of the application load balancer
 ```
 https://www.getpostman.com/tools
 ```
@@ -111,4 +111,6 @@ https://www.getpostman.com/tools
 13. /api/v1/validate_user -validating user credentails
 14. /api/v1/users -get the list of users that have registered with the app.
 15. /api/v1/users/<username>  -delete a user 
-  
+ 
+# License
+This project is licensed under ![MIT LICENSE](License.md)
