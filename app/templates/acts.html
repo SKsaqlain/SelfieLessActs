@@ -1,0 +1,90 @@
+<html>
+	<head>
+		<title>
+		Actss
+		</title>
+	</head>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<script>
+		
+		function increment(i){
+			
+			$.ajax({
+				type:'POST',
+				data:{"actId":i.getAttribute("id")},
+				url:"/upvote",
+				dataType:"json",
+				success:function(data){
+					var neigh=document.getElementById(i.getAttribute("id").concat("val"));
+					//alert(neigh.innerHTML)
+					neigh.innerHTML=parseInt(neigh.innerHTML)+1;
+					i.style.color='yellow';
+					i.onclick=function(){}
+
+				},
+				error:function(jqXHR){
+					alert("error:"+jqXHR.status);
+				}
+			})
+			}
+			function delete_act(i){
+				// alert(i.getAttribute("id"));
+				$.ajax({
+					type:'POST',
+					data:{'actId':i.getAttribute("id")},
+					url:'/delete',
+					dataType:'json',
+					success:function(data){window.location.reload();}
+				})
+			}
+	</script>
+	<body>
+		<div align="center">
+			<h1>SelfieLessActs</h1>
+		</div>
+
+
+		<table align="center"><tr><td align="center"><lable>Categories</lable></td></tr></table>
+		{% for ele in result%}
+			<table align="center">
+				
+				
+						<tr align='center'>
+							<td>"USERNAME"</td>
+							<td>{{ele.username}}</td>
+						</tr>
+
+						<tr align='center'>
+							<td>"IMAGE"</td>
+							<td><img src="data:image/jpeg;base64,{{ele.imgB64}}" alt="failed to load  image" width="450" height="400"></td>
+						</tr>
+						<tr align='center'>
+							<td>"TIME"</td>
+							<td>{{ele.timestamp}}</td>
+						</tr>
+						<tr align='center'>
+							<td>"CAPTION"</td>
+							<td>{{ele.caption}}</td>
+						</tr>
+						<tr align='center'>
+							<td id={{ele.actId}} onclick="increment(this)" style="color:red">"UPVOTE"</td>
+							<td id="{{ele.actId}}val">{{ele.upvote}}</td>
+						</tr>
+						<tr align='center'>
+							<td>"ACTID"</td>
+							<td>{{ele.actId}}</td>
+						</tr>
+						<tr align="center">
+							<td><button style="color:red" onclick="delete_act(this)" id="{{ele.actId}}">DELETE</button></td>
+
+						</tr>
+
+				
+			</table><br/>
+		{% endfor %}
+		
+		
+	</body>
+</html>

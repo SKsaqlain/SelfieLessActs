@@ -1,0 +1,97 @@
+<html>
+	<head>
+		<title>
+		Category
+		</title>
+	</head>
+	<script>
+		function send_act(i)
+		{
+			var cat=i.innerHTML;
+			var form=document.getElementById("frm");
+
+			var input=document.createElement("input");
+			input.setAttribute("type","hidden");
+			input.setAttribute("name","cat");
+			input.setAttribute("value",cat);
+			// input.setAttribute("visibility","none");
+			form.appendChild(input);
+			form.submit();
+
+
+		}
+		
+	</script>
+	<body>
+		<div align="center">
+			<h1>SelfieLessActs</h1>
+		</div>
+
+
+		
+		
+			<table align="center">
+				<tr><td align="center"><h1><lable>Categories</lable></h1></td></tr>
+				{% for key,value in result.iteritems() %}
+					<tr align='center'>
+						<td>
+						<form method='get' action='/list_acts' id='frm'>
+							<span onclick="send_act(this)">{{key}}</span>
+				
+						</form>
+						</td>
+						
+						<td>{{value}}</td>
+
+					</tr>
+				{% endfor %}
+				
+			</table>
+			<br/>
+			<form action="/upload_act" method="post" enctype="multipart/form-data" id="upload_form">
+			<table align="center">
+				<tr>
+					<td align="center" colspan="2"><h1><lable>UPLOAD ACT</lable></h1></td>
+				</tr>
+				
+					<tr>
+						<td align="center">UPLOAD IMAGE</td>
+						<td><input type="file" name="file"></td>
+					</tr>
+					<tr>
+						<td align="center">CATEGORY</td><td><input type="text" name="category"></td>
+					</tr>
+					<tr>
+
+						<td align="center">CAPTION</td>
+						<td><textarea rows="4" cols="50" name="caption"></textarea></td>
+					</tr>
+					<tr><td align="center" colspan="2"><input type="submit"  value="submit"></td></tr>
+
+					
+				
+			</table>
+			</form>
+
+			<br/>
+			<form action="/upload_category" method="post">
+				<table align="center">
+					<tr>
+						<td align="center" colspan="2"><h1><lable>UPLOAD CATEGORY</lable></h1></td>
+					</tr>
+					<tr>
+						<td align="center">CATEGORY</td>
+						<td><input type="text" name="category"></td>
+					</tr>
+					<tr>
+						<td align="center" colspan="2"><input type="submit" value="submit"></td></tr> 
+					</tr>
+				</table>
+
+				</table>
+			</form>
+		
+		
+		
+	</body>
+</html>

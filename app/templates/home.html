@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title>
+		SelfieLessActs
+		</title>
+	</head>
+	<body>
+		<div align="center">
+			<h1>SelfieLessActs</h1>
+		</div>
+
+
+		<script type="text/javascript">
+			function login()
+			{
+				var f=document.getElementById("fm");
+				f.setAttribute("action","/login");
+				f.submit();
+			}
+			function signup()
+			{
+				var f=document.getElementById("fm");
+				f.setAttribute("action","/signup");
+				f.submit()
+			}
+		</script>
+		<form method="post" action="" id="fm">
+			<table align="center">
+				<tr><td align="center"><lable>SIGN UP</lable></td></tr>
+				<tr><td><input type="username" name="username" placeholder="username"></td></tr>
+				<tr><td><input type="password" name="password" placeholder="password"></td></tr>
+				<tr><td align="center"><button  onclick="login()">LOGIN</button><button  onclick="signup()">SIGN-UP</button></td></tr>
+			</table>
+		</form>
+		
+		
+	</body>
+</html>
