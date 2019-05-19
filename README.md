@@ -1,6 +1,6 @@
 # Description
 The project was carried out as a part of the Cloud Computing course at PES University 2019.<br/>
-The objective of the project was to build a container orchestrator that can perform load balancing between micro-services and within micro-services, fault tolerance, and auto-scaling. The entire project was implemented on [Amazon AWS](https://aws.amazon.com/) EC2 instances.
+The objective of the project was to build a container orchestrator that can perform load balancing between micro-services and within micro-services, fault tolerance, and auto-scaling. The micro-services communicate with each other using _REST Api's_ .The entire project was implemented on [Amazon AWS](https://aws.amazon.com/) EC2 instances.
 
 
 # Requirements
@@ -10,6 +10,7 @@ The objective of the project was to build a container orchestrator that can perf
 * mysql
 * docker 
 * alpine 3.7
+* REST API
 
 # Architecture 
 The overall architecutre of the  project looks something like the one given below
@@ -88,6 +89,10 @@ $sudo docker run -d --rm -p 8000:80 acts:lates python /app/acts_app.py
 * Run the LoadBalancer.py code.<br/> The loadBalancer.py code perferms load distribution in a round-robin fashioh, and it also monitores the number of request made, with every increment of 10 request a new container is deployed, and it also performs scale-in vice-vera, the script also performs health check that is is any containers is found to be damages or not running then a new container with the same port number of that of the broken contianer is deployed.
 ```
 $sudo python loadBalancer.py
+```
+* To test the working of the  instance, either use curl or postman to send request, use the DNS of the application load balance
+```
+https://www.getpostman.com/tools
 ```
 # The list of API's and their status codes
 200-ok, 201- created, 204-no content, 400-bad request, 405-method not allowed, 413-payload too large, 500-error
