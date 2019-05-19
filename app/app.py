@@ -13,9 +13,9 @@ app.config['UPLOAD_FOLDER']='./static/images'
 
 
 username=''
-
-user_container="0.0.0.0:8080"
-acts_container="0.0.0.0:8000"
+# make appropriate changes such as specify the ip of the load balancer
+user_container="AWSloadbalancerIP:80"
+acts_container="AWSloadbalancerIP:80"
 flag=0
 @app.route("/")
 def home():
