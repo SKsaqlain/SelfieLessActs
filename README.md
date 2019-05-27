@@ -1,6 +1,6 @@
 # Description
 The project was carried out as a part of the Cloud Computing course at PES University 2019.<br/>
-The objective of the project was to build a _container orchestrator_ that can perform _load-0balancing_ between micro-services and within micro-services, _fault tolerance_ and _auto-scaling_. The micro-services communicate with each other using _REST Api's_ .The entire project was implemented on [Amazon AWS](https://aws.amazon.com/) EC2 instances.
+The objective of the project was to build a _container orchestrator_ that can perform _load-balancing_ between micro-services and within micro-services, _fault tolerance_ and _auto-scaling_. The micro-services communicate with each other using _REST Api's_ .The entire project was implemented on [Amazon AWS](https://aws.amazon.com/) EC2 instances.
 
 
 # Requirements
