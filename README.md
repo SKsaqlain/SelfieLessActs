@@ -113,4 +113,4 @@ https://www.getpostman.com/tools
 15. /api/v1/users/<username>  -delete a user 
  
 # License
-This project is licensed under ![MIT LICENSE](https://github.com/SKsaqlain/SelfieLessActs/blob/master/LICENSE)
+This project is made available under ![MIT LICENSE](https://github.com/SKsaqlain/SelfieLessActs/blob/master/LICENSE)
